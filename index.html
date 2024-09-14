@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Basic HTML Project</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -15,20 +17,150 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li>Home</li>
-                    <li>Profile</li>
-                    <li>Messages</li>
-                    <li>History</li>
-                    <li>Tasks</li>
-                    <li>Communities</li>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
+                    <li><a href="#tasks"><i class="fas fa-tasks"></i> Tasks</a></li>
+                    <li><a href="#communities"><i class="fas fa-users"></i> Communities</a></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li>Settings</li>
-                    <li>Support</li>
-                    <li>Privacy</li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#support"><i class="fas fa-question-circle"></i> Support</a></li>
+                    <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
                 </ul>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="top-row">
+                <div class="search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="user-info">
+                    <button class="notification-btn"><i class="fas fa-bell"></i></button>
+                    <img src="https://q1.qlogo.cn/g?b=qq&nk=2672886221&s=640" alt="User">
+                    <span class="username">John Doe</span>
+                </div>
+            </div>
+            <div class="bottom-row">
+                <div class="greeting">
+                    <h2>Welcome back, John Doe!</h2>
+                    <p>Here's what's happening with your projects today.</p>
+                </div>
+                <div class="new-project">
+                    <button>New</button>
+                    <button>Upload</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="projects">
+                <h2>Your Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Super Cool Project</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquam tincidunt...</p>
+                        <div class="project-actions">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-eye"></i>
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Less Cool Project</h3>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                        <div class="project-actions">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-eye"></i>
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Impossible App</h3>
+                        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+                        <div class="project-actions">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-eye"></i>
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Easy Peasy App</h3>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+                        <div class="project-actions">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-eye"></i>
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Ad Blocker</h3>
+                        <p>Quisque eget rutrum nisl. Nam augue justo, cursus vitae metus vel, pharetra hendrerit felis. Aliquam sed malesuada eros.</p>
+                        <div class="project-actions">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-eye"></i>
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Money Maker</h3>
+                        <p>Praesent convallis, libero quis congue elementum, nunc ante faucibus sapien, ac scelerisque tortor purus sit amet ex. Pellentesque mollis nec sem vel aliquam.</p>
+                        <div class="project-actions">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-eye"></i>
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="side-panel">
+                <div class="announcements">
+                    <h2>Announcements</h2>
+                    <div class="announcement-list">
+                        <div class="announcement-item">
+                            <h4>Site Maintenance</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h4>Community Share Day</h4>
+                            <p>Nam vel lectus tincidunt, rutrum nulla eu, ornare libero...</p>
+                        </div>
+                        <div class="announcement-item">
+                            <h4>Updated Privacy Policy</h4>
+                            <p>Phasellus efficitur nisi eget elit consectetur, eget condimentum ante auctor...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending">
+                    <h2>Trending</h2>
+                    <div class="trending-list">
+                        <div class="trending-item">
+                            <img src="https://i.pravatar.cc/40?img=1" alt="User 1">
+                            <div class="trending-info">
+                                <p class="username">@tegan</p>
+                                <p class="project-name">World Peace Builder</p>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <img src="https://i.pravatar.cc/40?img=2" alt="User 2">
+                            <div class="trending-info">
+                                <p class="username">@morgan</p>
+                                <p class="project-name">Super Cool Project</p>
+                            </div>
+                        </div>
+                        <div class="trending-item">
+                            <img src="https://i.pravatar.cc/40?img=3" alt="User 3">
+                            <div class="trending-info">
+                                <p class="username">@kendall</p>
+                                <p class="project-name">Life Changing App</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

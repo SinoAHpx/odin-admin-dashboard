@@ -11,8 +11,8 @@ html {
 
 .container {
   display: grid;
-  grid-template-columns: 3fr 7fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: minmax(240px, 15%) 1fr; /* Reduced maximum width percentage */
+  grid-template-rows: auto 1fr;
   height: 100%;
 }
 
@@ -20,25 +20,510 @@ html {
   background-color: #ff9292;
   color: #fff;
   grid-column: 1;
-}
-
-.container .sidebar .menu ul {
-  padding: 10px;
+  grid-row: 1 / -1;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  list-style: none;
-  font-size: 1.5rem;
+  min-width: 240px;
+  max-width: 300px; /* Added maximum width */
+}
+
+/* Adjust the responsive behavior */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: minmax(220px, 20%) 1fr; /* Adjusted for better responsiveness */
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: minmax(200px, 25%) 1fr; /* Adjusted for better responsiveness */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Full width on small screens */
+  }
+
+  .container .sidebar {
+    grid-column: 1;
+    grid-row: auto;
+    min-width: 100%; /* Full width sidebar on small screens */
+  }
+
+  .container .main-content,
+  .container .topbar {
+    grid-column: 1;
+  }
+}
+
+/* You may need to adjust these styles for better responsiveness */
+.container .sidebar .menu ul li a {
+  font-size: clamp(1rem, 1.8vw, 1.2rem); /* Increased responsive font size */
+}
+
+.container .sidebar .menu ul li i {
+  font-size: clamp(1.2rem, 2vw, 1.4rem); /* Increased responsive icon size */
+}
+
+.container .logo h1 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem); /* Responsive logo text size */
 }
 
 .container .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  margin-bottom: 40px; /* Add space between logo and menu */
 }
 
 .container .logo img {
   width: 40px;
   height: 40px;
+}
+
+.container .logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.container .sidebar .menu ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.container .sidebar .menu ul li a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem; /* Increased font size */
+  transition: transform 0.2s ease-in-out;
+}
+
+.container .sidebar .menu ul li a:hover {
+  transform: translateX(5px);
+}
+
+.container .sidebar .menu ul li i {
+  font-size: 1.4rem; /* Increased icon size */
+  width: 25px; /* Fixed width for icons */
+}
+
+/* Add a separator between main menu and settings */
+.container .sidebar .menu ul li:nth-child(6) {
+  margin-bottom: 40px;
+}
+
+/* Hide empty list items */
+.container .sidebar .menu ul li:empty {
+  display: none;
+}
+
+.container .sidebar .menu ul li {
+  display: grid;
+  grid-template-columns: 30px 1fr; /* Reduce icon column width */
+  align-items: center;
+  gap: 8px; /* Reduce gap between icon and text */
+}
+
+.container .logo {
+  padding: 15px 10px; /* Adjust logo padding */
+}
+
+.container .logo img {
+  width: 50px; /* Reduce logo size */
+  height: auto;
+}
+
+.container .topbar {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px 30px; /* Increased padding */
+  background-color: #fff;
+  height: auto; /* Change from fixed height to auto */
+  min-height: 150px; /* Add this line for minimum height */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Increased shadow size and opacity */
+  position: relative; /* Added position relative */
+  z-index: 1; /* Added z-index */
+  overflow: hidden; /* Added overflow hidden */
+}
+
+.container .topbar .top-row,
+.container .topbar .bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.container .topbar .search {
+  flex-grow: 1;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 5px 15px; /* Increased padding */
+  width: 100%; /* Change from fixed width to 100% */
+  max-width: 350px; /* Add this line to limit maximum width */
+}
+
+.container .topbar .search input {
+  border: none;
+  outline: none;
+  padding: 5px 10px; /* Increased padding */
+  font-size: 1rem; /* Increased font size */
+  width: 100%;
+  background-color: transparent;
+}
+
+.container .topbar .search i {
+  color: #888;
+}
+
+.container .topbar .user-info {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Reduced gap */
+}
+
+.container .topbar .notification-btn {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Increased size */
+  height: 40px; /* Increased size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.2rem; /* Increased icon size */
+}
+
+.container .topbar .notification-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.container .topbar .user-info img {
+  width: 45px; /* Increased size */
+  height: 45px; /* Increased size */
+  border-radius: 50%;
+}
+
+.container .topbar .user-info .username {
+  font-size: 1rem; /* Increased font size */
+  color: #333;
+  font-weight: bolder;
+}
+
+.container .topbar .greeting {
+  margin-bottom: 0;
+}
+
+.container .topbar .greeting h2 {
+  margin: 0;
+  font-size: 1.3rem; /* Reduced font size */
+  color: #333;
+}
+
+.container .topbar .greeting p {
+  margin: 3px 0 0; /* Reduced margin */
+  font-size: 0.9rem; /* Reduced font size */
+  color: #666;
+}
+
+.container .topbar .new-project {
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.container .topbar .new-project button {
+  padding: 8px 16px; /* Increased padding */
+  border: none;
+  border-radius: 20px;
+  background-color: #ff9292;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem; /* Increased font size */
+}
+
+.container .topbar .new-project button:hover {
+  background-color: #ff7070;
+}
+
+.container .main-content {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #e0e0e0;
+  padding: 20px;
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); /* Adjust this line */
+  gap: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
+
+.container .main-content .projects {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Add this line */
+}
+
+.container .main-content .side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%; /* Change this from 300px to 100% */
+}
+
+.container .main-content .announcements,
+.container .main-content .trending {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.container .main-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.container .topbar .user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.container .topbar .user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.container .topbar .user-info {
+  text-align: right;
+}
+
+.container .topbar .user-info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.container .topbar .user-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Add these styles at the end of your existing CSS file */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Reduce minimum width */
+  gap: 20px;
+}
+
+.project-card {
+  background-color: #fff;
+  border-left: 5px solid #ff9292;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  max-width: 100%; /* Add this line */
+  overflow: hidden; /* Add this line */
+}
+
+.project-card h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.project-actions i {
+  color: #666;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.project-actions i:hover {
+  color: #ff9292;
+}
+
+.main-content {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff9292 #e0e0e0;
+}
+
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #ff9292;
+  border-radius: 4px;
+}
+
+.announcement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.announcement-item {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.announcement-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.announcement-item h4 {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.announcement-item p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.trending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.trending-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.trending-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.trending-info .username {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.trending-info .project-name {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Remove the previously added styles that are no longer needed */
+.announcement-list,
+.trending-list {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  height: auto;
+  overflow-y: visible;
+}
+
+.trending-item {
+  margin-bottom: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.trending-item:hover {
+  background-color: transparent;
+}
+
+/* Make the layout responsive for smaller screens */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 200px 1fr; /* Further reduce sidebar width on smaller screens */
+  }
+
+  .container .sidebar .menu ul {
+    font-size: 1rem; /* Further reduce font size on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Stack layout on very small screens */
+  }
+
+  .container .sidebar {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .container .main-content,
+  .container .topbar {
+    grid-column: 1;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    grid-template-columns: 300px 1fr; /* Fixed sidebar width for large screens */
+  }
 }
