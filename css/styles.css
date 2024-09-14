@@ -1,0 +1,44 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+}
+
+.container .sidebar {
+  background-color: #ff9292;
+  color: #fff;
+  grid-column: 1;
+}
+
+.container .sidebar .menu ul {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+.container .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.container .logo img {
+  width: 40px;
+  height: 40px;
+}
